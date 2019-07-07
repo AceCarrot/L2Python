@@ -1,0 +1,31 @@
+# Draw Turtle  
+
+import turtle
+
+def drawSnake(rad, angle, len, neckrad):
+    for i in range(len):
+        turtle.circle(rad, angle)
+        # 沿圆形轨迹爬行，rad：轨迹半径的位置（乌龟左侧rad远的地方，负值为右侧） angle: 乌龟爬行的弧度值
+        turtle.circle(-rad, angle)
+    turtle.circle(rad, angle/2)
+    turtle.fd(rad)
+    # forwad rad: 距离
+    turtle.circle(neckrad + 1, 180)
+    turtle.fd(rad*2/3)
+
+def main():
+    turtle.setup(1300, 800, 0, 0)
+    #启动图形窗口，窗口宽度和高度，窗口左上角在屏幕中的位置
+    pythonsize = 30
+    turtle.pensize(pythonsize)
+    #笔迹宽度
+    turtle.pencolor("blue")
+    # RGB
+    turtle.seth(-70)
+    # 启动时运行方向，角度值
+    drawSnake(40,80,5,pythonsize/2)
+
+main()
+
+turtle.done() # 不加这个pycharm报错
+
